@@ -1,27 +1,26 @@
-name: Deploy to GitHub Pages  # Название workflow (процесса)
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]  # Запускать процесс только при пуше в ветку main
+    branches: [main]
 
 jobs:
-  deploy:  # Название задачи (job)
-    runs-on: ubuntu-latest  # ОС, на которой будет выполняться задача (последняя версия Ubuntu)
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
-      # Шаг 1: Клонируем репозиторий
       - name: Checkout code
-        uses: actions/checkout@v4  # Используем action для клонирования репозитория
-
-      # Шаг 2: Устанавливаем зависимости и собираем проект
-      - name: Install and build
-        run: |  # Выполняем команды в терминале
-          npm install  # Устанавливаем зависимости
-          npm run build  # Собираем проект (команда build из package.json)
-
-      # Шаг 3: Деплоим на GitHub Pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3  # Используем action для деплоя
+        uses: actions/checkout@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Токен для доступа к репозиторию
-          publish_dir: ./docs  # Папка, которую нужно задеплоить (обычно это build для React)
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}  # Используем SSH-ключ
+
+      - name: Install and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.SSH_PRIVATE_KEY }}  # Используем SSH-ключ для деплоя
+          publish_dir: ./docs
