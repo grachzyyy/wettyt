@@ -1,0 +1,164 @@
+/* Основные стили */
+:root {
+  --text-color: #8794a1;
+  --accent-color: #4db2ff;
+  --accent-rgb: 77, 178, 255;
+  --accent-bg-color: rgba(var(--accent-rgb), .1);
+  --dropdown-color: #dde4eb;
+  --dropdown-bg-color: #2e3a47;
+  --dropdown-bg-hover-color: #384553;
+  --dropdown-secondary-color: #8c9aa9;
+  --article-color: #fff;
+  --field-color: #fff;
+  --field-bg-color: #242e38;
+  --header-color: #fff;
+  --bg-rgb: 26, 32, 38;
+  --bg-color: rgb(var(--bg-rgb));
+}
+
+/* Базовые стили */
+body {
+  font-family: 'Roboto', -apple-system, system-ui, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Стили хедера */
+.tm-header {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: var(--dropdown-bg-color);
+}
+
+.
+ {
+  display: flex;
+  align-items: center;
+}
+
+.tm-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Форма поиска */
+.tm-header-search-form {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.tm-search-field {
+  position: relative;
+}
+
+.tm-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--dropdown-bg-hover-color);
+  background: var(--field-bg-color);
+  color: var(--field-color);
+  border-radius: 4px;
+}
+
+/* Основной контент */
+.tm-main {
+  padding: 20px;
+}
+
+.tm-section {
+  margin-bottom: 30px;
+}
+
+.tm-section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tm-section-header-text {
+  color: var(--header-color);
+  font-size: 24px;
+  margin: 0;
+}
+
+.tm-section-header-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+  font-size: 14px;
+  background: var(--accent-bg-color);
+  color: var(--accent-color);
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-link {
+  background: none;
+  color: var(--accent-color);
+  padding: 0;
+}
+
+/* Футер */
+.tm-footer {
+  padding: 20px;
+  background: var(--dropdown-bg-color);
+  margin-top: auto;
+}
+
+.tm-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tm-footer-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .tm-header {
+    flex-direction: row;
+    padding: 10px;
+  }
+  
+  .tm-header-search-form {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+/* Дополнительные утилиты */
+.hide {
+  display: none;
+}
+
+.icon-before:before {
+  content: '';
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.accent-color {
+  color: var(--accent-color);
+} 
