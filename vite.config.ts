@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: 'docs'
   },
   // @ts-ignore
-  base: process.env.GH_PAGES ? '/' : './',
+  base: process.env.GH_PAGES ? '/frtganproject/' : '/',
   server: {
     fs: {
       allow: ['../sdk', './'],
